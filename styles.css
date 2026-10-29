@@ -1,0 +1,153 @@
+/* Love Will Tear Us Apart — the app's own look: the voxel world's sky, Pixelify
+   Sans, chunky game buttons with hard ink drops, and one red string tying the
+   page together the way it ties your two islands. */
+
+:root {
+  --sky-top: #78cff5;
+  --sky-mid: #bfe9fb;
+  --blush: #ffe3ef;
+  --ink: #2a2340;
+  --pink: #ff6fa3;
+  --pink-edge: #c94478;
+  --string: #e8344e;
+  --cream: #fff8ee;
+  --cream-edge: #e3d6c2;
+  --font: 'Pixelify Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  min-height: 100%;
+  /* The sky runs the whole page: blue at the top, blush by the end. */
+  background: linear-gradient(var(--sky-top) 0, var(--sky-mid) 1400px, var(--blush) 100%);
+  color: var(--ink);
+  font: 500 1.1875rem/1.45 var(--font);
+  -webkit-text-size-adjust: 100%;
+}
+
+body { margin: 0; min-height: 100vh; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; border-radius: 6px; }
+
+/* The display type: white with a 2 px ink outline and a 4 px ink drop, like the app's banners. */
+.banner {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  text-shadow:
+    -2px -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 2px 0 var(--ink), 2px 2px 0 var(--ink),
+    0 -2px 0 var(--ink), 0 2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink),
+    0 6px 0 var(--ink);
+}
+
+/* The chunky button: pink face, darker bottom edge, hard ink drop; presses down onto it. */
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.6rem 1.05rem;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  background: var(--pink);
+  box-shadow: inset 0 -7px 0 var(--pink-edge), 0 5px 0 var(--ink);
+  color: #fff;
+  font: 700 1.5rem/1 var(--font);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-shadow: -1.5px -1.5px 0 var(--ink), 1.5px -1.5px 0 var(--ink), -1.5px 1.5px 0 var(--ink), 1.5px 1.5px 0 var(--ink), 0 3px 0 var(--ink);
+  transition: transform 80ms ease-out, box-shadow 80ms ease-out;
+}
+.button:active { transform: translateY(4px); box-shadow: inset 0 -7px 0 var(--pink-edge), 0 1px 0 var(--ink); }
+.button[aria-disabled='true'] { background: var(--cream); box-shadow: inset 0 -6px 0 var(--cream-edge), 0 5px 0 var(--ink); color: var(--ink); text-shadow: none; cursor: default; }
+
+.note { margin: 0.9rem 0 0; font-size: 0.95rem; }
+
+/* ─── hero ─────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: 3.5rem 1rem 1rem;
+  text-align: center;
+}
+.hero .banner { font-size: clamp(2.4rem, 8vw, 4.6rem); max-width: 12ch; }
+.hero .lede { margin: 0; max-width: 30ch; font-size: clamp(1.15rem, 2.6vw, 1.45rem); }
+.hero-art { width: min(440px, 88vw); margin-top: -0.5rem; animation: bob 5s ease-in-out infinite; }
+
+@keyframes bob { 50% { transform: translateY(-8px); } }
+
+/* ─── the moments, along the red string ───────────────── */
+
+.story { position: relative; max-width: 1040px; margin: 0 auto; padding: 1rem 1.25rem 2rem; }
+
+.string { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.string path { fill: none; stroke: var(--string); stroke-width: 4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.string .narrow { display: none; }
+
+.moment {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  min-height: 420px;
+}
+.moment:nth-of-type(even) .moment-art { order: 2; }
+.moment-art { justify-self: center; width: min(360px, 100%); }
+.moment-art.icon { width: min(250px, 70%); border: 3px solid var(--ink); border-radius: 22%; box-shadow: 0 6px 0 var(--ink); }
+.moment h2 { margin: 0 0 0.6rem; font-size: clamp(1.9rem, 4vw, 2.6rem); }
+.moment p { margin: 0; max-width: 34ch; }
+
+.moment-art.cast { width: min(560px, 100%); }
+.cast { display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; gap: 0.25rem; width: 100%; }
+
+/* ─── the promise ─────────────────────────────────────── */
+
+.promise {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  margin: 1rem auto 0;
+  padding: 1.5rem 1.75rem 1.75rem;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  background: var(--cream);
+  box-shadow: 0 6px 0 var(--ink);
+}
+.promise h2 { margin: 0 0 0.5rem; font-size: 1.75rem; font-weight: 700; color: var(--ink); }
+.promise p { margin: 0; }
+
+/* ─── the end ─────────────────────────────────────────── */
+
+.finale { position: relative; z-index: 1; display: grid; justify-items: center; gap: 1.25rem; padding: 4rem 1rem 3rem; text-align: center; }
+.finale .banner { font-size: clamp(2rem, 6vw, 3.4rem); }
+
+footer { padding: 0 1rem 2.5rem; text-align: center; font-size: 0.95rem; }
+footer a { margin: 0 0.6rem; }
+
+/* ─── narrow screens: one column, the string runs down the left ── */
+
+@media (max-width: 720px) {
+  .string .wide { display: none; }
+  .string .narrow { display: inline; }
+  .story { padding-left: 2.5rem; }
+  .moment { grid-template-columns: 1fr; gap: 1rem; min-height: 0; padding: 2rem 0; text-align: left; }
+  .moment:nth-of-type(even) .moment-art { order: 0; }
+  .moment-art { justify-self: start; width: min(300px, 100%); }
+  .moment-art.cast { width: 100%; }
+  .cast { grid-template-columns: repeat(5, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art { animation: none; }
+  .button { transition: none; }
+}

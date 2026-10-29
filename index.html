@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Love Will Tear Us Apart</title>
+  <meta name="description" content="A tiny world for the two of you, for the days you're apart. Tap phones to connect, ping to feel how far apart you are, and celebrate being together again.">
+  <meta property="og:title" content="Love Will Tear Us Apart">
+  <meta property="og:description" content="A tiny world for the two of you, for the days you're apart.">
+  <meta property="og:image" content="https://lovewilltearusapart.com/img/hero.png">
+  <meta property="og:url" content="https://lovewilltearusapart.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <h1 class="banner">Love Will Tear Us Apart</h1>
+    <p class="lede">A tiny world for the two of you, for the days you're apart.</p>
+    <a class="button" data-get href="#">Download the app</a>
+    <img class="hero-art" src="img/hero.png" width="940" height="1320" alt="Two little voxel people on two floating islands, joined by a red string">
+  </header>
+
+  <main class="story">
+    <svg class="string" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
+      <path class="wide" d="M50,0 C50,50 25,60 25,110 S75,240 75,300 S25,440 25,500 S75,640 75,700 S25,820 25,880 S50,960 50,1000" />
+      <path class="narrow" d="M4,0 C7,120 1,230 4,340 S7,560 4,670 S1,890 4,1000" />
+    </svg>
+
+    <section class="moment">
+      <div class="moment-art cast" role="img" aria-label="Five little voxel people on grass pedestals: bald with a beard, curly hair, long red hair with flowers, a beanie and glasses, a blonde bob with a scarf">
+        <img src="img/cast0.png" width="560" height="840" alt="">
+        <img src="img/cast1.png" width="560" height="840" alt="">
+        <img src="img/cast2.png" width="560" height="840" alt="">
+        <img src="img/cast3.png" width="560" height="840" alt="">
+        <img src="img/cast4.png" width="560" height="840" alt="">
+      </div>
+      <div>
+        <h2 class="banner">Make your little person</h2>
+        <p>Bald, bearded, curly, beanie, the lot. Give them a vibe, a signature move and a catchphrase.</p>
+      </div>
+    </section>
+
+    <section class="moment">
+      <img class="moment-art icon" src="img/icon.png" width="1024" height="1024" alt="Two little voxel people, foreheads touching, with a heart above them">
+      <div>
+        <h2 class="banner">Hold your phones together</h2>
+        <p>Tap your phones to connect. Your islands come together and a red string ties you, wherever you go next.</p>
+      </div>
+    </section>
+
+    <section class="moment">
+      <img class="moment-art" src="img/far.png" width="940" height="1320" alt="Two islands far apart, the red string stretched between them">
+      <div>
+        <h2 class="banner">Ping from anywhere</h2>
+        <p>Send a ping and their phone buzzes. Open it and you both see how far apart you are.</p>
+      </div>
+    </section>
+
+    <section class="moment">
+      <img class="moment-art" src="img/near.png" width="940" height="1320" alt="Two islands drifting close together">
+      <div>
+        <h2 class="banner">On my way</h2>
+        <p>Heading home? Tap On my way and they watch your island drift in, closer and closer.</p>
+      </div>
+    </section>
+
+    <section class="moment">
+      <img class="moment-art" src="img/reunion.png" width="940" height="1320" alt="The two islands together in a burst of confetti and hearts">
+      <div>
+        <h2 class="banner">Together again</h2>
+        <p>Tap phones when you're back. Confetti, your signature moves, and your song starts playing.</p>
+      </div>
+    </section>
+
+    <aside class="promise">
+      <h2>Only ever a distance</h2>
+      <p>Your person never sees where you are on a map, only how far apart you are, and only when one of you pings or heads home. Either of you can disconnect at any time.</p>
+    </aside>
+  </main>
+
+  <section class="finale">
+    <p class="banner">Find your person</p>
+    <a class="button" data-get href="#">Download the app</a>
+    <p class="note" data-get-note>For iPhone.</p>
+  </section>
+
+  <footer>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </footer>
+
+  <script>
+    // Where "Download the app" goes: the App Store page once it's live (or a
+    // public TestFlight link before then). Until it's set, the buttons say so.
+    const DOWNLOAD_URL = '';
+    for (const a of document.querySelectorAll('[data-get]')) {
+      if (DOWNLOAD_URL) a.href = DOWNLOAD_URL;
+      else {
+        a.textContent = 'Coming soon to the App Store';
+        a.setAttribute('aria-disabled', 'true');
+        a.removeAttribute('href');
+      }
+    }
+  </script>
+</body>
+</html>
